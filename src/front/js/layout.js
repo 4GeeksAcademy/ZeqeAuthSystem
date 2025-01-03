@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
@@ -22,7 +22,23 @@ const Layout = () => {
     // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
     const basename = process.env.BASENAME || "";
 
-    if(!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL/ >;
+    if (!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL />;
+
+    const PrivatePage = () => {
+        const navigate = useNavigate();
+
+        return (
+            <div className="text-center mt-5">
+                <h1>Bienvenido a la página privada</h1>
+                <button
+                    onClick={() => navigate("/")}
+                    className="btn btn-warning btn-lg mt-3"
+                >
+                    Si eres Arnaldo o Cristian, ¡Click aquí para dirigirse al Home!
+                </button>
+            </div>
+        );
+    };
 
     return (
         <div>
@@ -33,17 +49,16 @@ const Layout = () => {
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
-                        
-                        {/* Nuevas rutas */}
+
                         <Route element={<Signup />} path="/signup" />
                         <Route element={<Login />} path="/login" />
-                        <Route 
-                            path="/private" 
+                        <Route
+                            path="/private"
                             element={
                                 <ProtectedRoute>
-                                    <h1>Bienvenido a la página privada</h1>
+                                    <PrivatePage />
                                 </ProtectedRoute>
-                            } 
+                            }
                         />
                         <Route element={<h1>Not found!</h1>} path="*" />
                     </Routes>

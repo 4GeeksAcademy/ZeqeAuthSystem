@@ -5,3 +5,26 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
+.card-title {
+    font-family: "Georgia", serif;
+    font-weight: bold;
+    color: #2a9d8f;
+}
+
+.card-text {
+    color: #264653;
+}
+
+img {
+    margin-top: 20px;
+    border: 2px solid #e9c46a;
+    padding: 5px;
+    background-color: #f4a261;
+    border-radius: 10px;
+}
+
+em {
+    font-size: 1.2rem;
+    color: #e76f51;
+}

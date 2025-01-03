@@ -20,7 +20,7 @@ export const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">Pizzería</Link>
+                <Link className="navbar-brand" to="/">¡G r a c i a s!</Link>
                 <button
                     className="navbar-toggler"
                     type="button"

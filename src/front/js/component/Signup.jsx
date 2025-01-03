@@ -31,11 +31,11 @@ const Signup = () => {
     };
 
     return (
-        <div className="container mt-5">
-            <h2 className="text-center">Registro</h2>
-            <form className="w-50 mx-auto" onSubmit={handleSubmit}>
+        <div className="container card shadow-lg border-0 mt-5" style={{ width: 'fit-content' }}>
+            <h2 className="card-title text-center">Registro</h2>
+            <form className="w-100 mx-auto text-end" onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label className="form-label me-3">Email</label>
+                    <label className="form-label me-3 ">Email</label>
                     <input
                         type="email"
                         placeholder="Email"
@@ -54,7 +54,7 @@ const Signup = () => {
                         required
                     />
                 </div>
-                <button type="submit" className="btn btn-primary w-100">Registrar</button>
+                <button type="submit" className="btn btn-primary text-center" style={{ width: "100%" }}>Registrar</button>
             </form>
         </div>
     );
