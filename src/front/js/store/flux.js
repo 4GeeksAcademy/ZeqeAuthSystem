@@ -46,7 +46,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+			login: async (email, password) => {
+				const opts = {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ email, password })
+				};
+				const resp = await fetch(`${process.env.BACKEND_URL}/api/login`, opts);
+				if (resp.ok) {
+					const data = await resp.json();
+					sessionStorage.setItem("token", data.token);
+					return true;
+				} else {
+					alert("Error al iniciar sesión");
+					return false;
+				}
+			}			
 		}
 	};
 };

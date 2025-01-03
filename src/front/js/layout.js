@@ -11,6 +11,11 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
+// Nuevas importaciones
+import Signup from "./component/Signup.jsx"; // Ruta del archivo Signup.jsx
+import Login from "./component/Login.jsx";   // Ruta del archivo Login.jsx
+import ProtectedRoute from "./component/ProtectedRoute.jsx"; // Ruta del archivo ProtectedRoute.jsx
+
 //create your first component
 const Layout = () => {
     //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -28,7 +33,19 @@ const Layout = () => {
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
-                        <Route element={<h1>Not found!</h1>} />
+                        
+                        {/* Nuevas rutas */}
+                        <Route element={<Signup />} path="/signup" />
+                        <Route element={<Login />} path="/login" />
+                        <Route 
+                            path="/private" 
+                            element={
+                                <ProtectedRoute>
+                                    <h1>Bienvenido a la página privada</h1>
+                                </ProtectedRoute>
+                            } 
+                        />
+                        <Route element={<h1>Not found!</h1>} path="*" />
                     </Routes>
                     <Footer />
                 </ScrollToTop>
