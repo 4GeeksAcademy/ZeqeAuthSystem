@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BackendURL = 'https://urban-robot-pqrw54r4jjrc6576-3001.app.github.dev/api'
+const BackendURL = 'https://zany-succotash-rvg65qg5j6r2pjx9-3001.app.github.dev/api'
 
 const Signup = () => {
     const [email, setEmail] = useState("");
